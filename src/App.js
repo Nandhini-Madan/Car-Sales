@@ -32,7 +32,7 @@ const App = props => {
       <div className="box">
         <Header car={props.car} />
         <AddedFeatures car={props.car} />
-        <AddedFeature car={props.car}/>
+        
       </div>
       <div className="box">
         <AdditionalFeatures additionalFeatures={props.additionalFeatures} />
