@@ -1,4 +1,4 @@
-import { bindActionCreators } from "redux";
+
 
 const initialState = {
     additionalPrice: 0,
@@ -17,13 +17,31 @@ const initialState = {
     ]
 };
 
-export const carReducer=(state=initialState,action)=>{
-switch(action.type){
-    case "ADD_FEATURES":
-        return state.car.price;
+export const carReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case "ADD_FEATURES":
+            return {
+                ...state, car: {
+                    ...state.car,
+                    features: [...state.car.features, action.payload]
+                },
+                additionalFeatures: state.additionalFeatures.filter(feature =>
+                    feature.id = !action.payload.id,
+
+                ),
+                additionalPrice: state.additionalPrice + action.payload.price
+            };
         case "REMOVE_FEATURES":
-            return state;
+            return {
+               ...state,car:{
+                   ...state.car,
+                   features:state.car.features.filter(feature=>feature.id=!action.payload.id)
+               },
+               additionalFeatures:[...state.additionalFeatures,action.payload],
+               additionalPrice:state.additionalPrice-action.payload
+            };
         default:
             return state;
-}
+    }
 };
+
