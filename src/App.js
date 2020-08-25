@@ -4,9 +4,13 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
+import AddedFeature from './components/AddedFeature';
+
+
+
 
 const App = () => {
-  const state = {
+ /* const state = {
     additionalPrice: 0,
     car: {
       price: 26395,
@@ -21,13 +25,14 @@ const App = () => {
       { id: 3, name: 'Premium sound system', price: 500 },
       { id: 4, name: 'Rear spoiler', price: 250 }
     ]
-  };
+  };*/
 
   return (
     <div className="boxes">
       <div className="box">
         <Header car={state.car} />
         <AddedFeatures car={state.car} />
+        <AddedFeature car={state.car}/>
       </div>
       <div className="box">
         <AdditionalFeatures additionalFeatures={state.additionalFeatures} />

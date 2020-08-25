@@ -1,3 +1,5 @@
+import { bindActionCreators } from "redux";
+
 const initialState = {
     additionalPrice: 0,
     car: {
@@ -13,4 +15,15 @@ const initialState = {
         { id: 3, name: 'Premium sound system', price: 500 },
         { id: 4, name: 'Rear spoiler', price: 250 }
     ]
+};
+
+export const carReducer=(state=initialState,action)=>{
+switch(action.type){
+    case "ADD_FEATURES":
+        return state.car.price;
+        case "REMOVE_FEATURES":
+            return state;
+        default:
+            return state;
+}
 };
